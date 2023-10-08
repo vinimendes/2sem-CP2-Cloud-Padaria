@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewData["Title"] = "Editar item";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar</title>
+    <link rel="stylesheet" href="~/css/editar.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/PadariaDoceAroma.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <ol>
+            <li class="registro">Editar item </li>
+        </ol>
+        <div id="nomeEmpresa">
+            <h3>doce aroma</h3>
+        </div>
+    </header>
+
+    <main>
+        <form asp-action="Editar">
+
+            <partial name="_Formulario"></partial>
+
+            <botao texto="Editar"></botao>
+        </form>
+
+
+        <div id="foto">
+            <img src="./imgs/registro.png" asp-append-version="true">
+        </div>
+    </main>
+</body>
+
+</html>

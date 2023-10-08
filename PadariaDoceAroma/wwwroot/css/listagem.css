@@ -1,0 +1,77 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Croissant+One&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Croissant+One&family=Lobster&family=Prata&family=Satisfy&family=Yeseva+One&display=swap');
+
+
+body {
+    background-color: #F1EDE8;
+    color: #402620;
+}
+
+
+main,
+#header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-bottom: -6rem;
+}
+
+/*cabecalho*/
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.registro {
+    font-size: 5rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Prata', serif;
+}
+
+h3 {
+    color: #C4B3DD;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    font-family: 'Abril Fatface';
+    width:10rem;
+    margin-top:2rem;
+}
+
+li {
+    list-style-type: none;
+    margin: 0.5rem;
+    font-size: 1.5rem;
+}
+
+
+.produto {
+    font-size: 1rem;
+    text-align: center;
+    font-family: 'Prata', serif;
+    background-color: #C4B3DD;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+main {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.botoes {
+    background-color: white;
+    border-radius: 0.6rem;
+    border-color: #402620;
+    border-width: 0.2rem;
+    color: #402620;
+    padding: 1rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin: 1rem;
+}

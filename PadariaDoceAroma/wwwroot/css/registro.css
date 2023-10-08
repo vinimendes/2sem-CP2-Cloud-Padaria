@@ -1,0 +1,114 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Croissant+One&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Croissant+One&family=Lobster&family=Prata&family=Satisfy&family=Yeseva+One&display=swap');
+
+
+body {
+    background-color: #F1EDE8;
+    color: #402620;
+    margin-top:4rem;
+}
+
+
+
+/*cabecalho*/
+header {
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+}
+
+.registro {
+    font-size: 5rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Prata', serif;
+}
+
+#nomeEmpresa {
+    color: #C4B3DD;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    font-family: 'Abril Fatface';
+    margin-right: 5rem;
+}
+
+
+
+
+
+/*área do formulário*/
+#formulario {
+    display: flex;
+    flex-direction: column;
+    width:60%;
+}
+
+.opcao {
+    display: flex;
+    flex-direction: row;
+    margin: 0rem;
+    margin-left: -3rem;
+}
+
+input,
+textarea {
+    background-color: #D7CAEA;
+    margin-bottom: 2.5rem;
+    padding: 0.5rem;
+    text-transform: uppercase;
+    border-radius: 0.4rem;
+    border-color: #402620;
+    border-width: 0.1rem;
+}
+
+li {
+    list-style-type: none;
+    margin: 0.5rem;
+    font-size: 1.5rem;
+}
+
+
+
+/*main com a foto*/
+img {
+   
+    width: 80%;
+    height: 80%;
+}
+
+#foto {
+    width: 80%;
+    margin-left:7rem;
+    height: 80%;
+}
+
+#container {
+    display: flex;
+    justify-content:space-around;
+}
+
+
+
+/*footer com o botão*/
+
+footer {
+    text-align: center;
+}
+
+#botao {
+    color: #402620;
+    background-color: white;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    padding-top: 1.6rem;
+    padding-bottom: 1.6rem;
+    font-size: 1.3rem;
+    border-radius: 0.3rem;
+    border-color: #402620;
+    border-width: 0.1rem;
+    cursor: pointer;
+}

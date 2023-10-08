@@ -1,0 +1,67 @@
+﻿
+@model List<Item>   
+@{
+    ViewData["Title"] = "Listagem";
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem</title>
+
+    <link rel="stylesheet" href="~/css/listagem.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/PadariaDoceAroma.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <ol>
+            <li class="registro">Itens Cadastrados</li>
+        </ol>
+        <div id="nomeEmpresa">
+            <h3>doce aroma</h3>
+        </div>
+    </header>
+    <main>
+
+            @foreach(var item in Model)
+            {
+                <div class="produto">
+                    
+                    <h4>@item.Id -  Nome: @item.Nome</h4>
+                    <h4>Valor: R$@item.Valor</h4>
+                    <a asp-action="Editar" asp-route-id="@item.Id"  target="_blank"><button class="botoes">Editar</button></a>
+                <button onclick="churros.value = @item.Id" type="button" class="botoes" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Excluir
+                </button>
+                </div>
+
+            }
+
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmação</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Deseja realmente excluir o veículo?
+                    </div>
+                    <div class="modal-footer">
+                        <form asp-action="Apagar">
+                            <input type="hidden" name="id" id="churros" />
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+                            <button type="submit" class="btn btn-danger">Sim</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

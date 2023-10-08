@@ -1,0 +1,48 @@
+﻿@model Item
+@{
+    ViewData["Title"] = "Cadastrar item";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar</title>
+    <link rel="stylesheet" href="~/css/registro.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/PadariaDoceAroma.styles.css" asp-append-version="true" />
+</head>
+
+
+<body>
+    <header>
+        <ol>
+            <li class="registro">registro de</li>
+            <li class="registro">sabores</li>
+        </ol>
+        <div id="nomeEmpresa">
+            <h3>doce aroma</h3>
+        </div>
+    </header>
+
+        <div id="container">
+        <form asp-action="Cadastrar" id="formulario">
+            <partial name="_Formulario" id="formulario"></partial>
+        </form>
+        <div id="foto">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4cBdMVgkb9joHRxxd_BAxFDXPJ7K21COalUbbyBNQIF5a3wyWfeGvMSjagcPPq_bnFEY&usqp=CAU">
+        </div>
+        </div>
+        <botao id="botao"></botao>
+</body>
+
+
+
+
+
+
+
+
+
+
+
