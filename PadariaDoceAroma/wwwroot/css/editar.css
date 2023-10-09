@@ -11,38 +11,20 @@ body {
     color: #402620;
 }
 
+h5 {
+    font-size: 5rem;
+    text-align: center;
+    text-transform: uppercase;
+    color: #402620;
+    font-family: 'Prata', serif;
+}
 
-main,
-#header {
+main {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     margin-bottom: -6rem;
 }
-
-/*cabecalho*/
-header {
-    margin-left: 4rem;
-    display: flex;
-    justify-content: space-between;
-}
-
-.registro {
-    font-size: 5rem;
-    text-align: center;
-    text-transform: uppercase;
-    font-family: 'Prata', serif;
-}
-
-#nomeEmpresa {
-    color: #C4B3DD;
-    font-size: 1.3rem;
-    text-transform: uppercase;
-    font-family: 'Abril Fatface';
-    margin-right: 5rem;
-}
-
-
 
 
 
@@ -76,11 +58,7 @@ textarea {
         outline: 0;
     }
 
-li {
-    list-style-type: none;
-    margin: 0.5rem;
-    font-size: 1.5rem;
-}
+
 
 label {
     font-size: 1.5rem;

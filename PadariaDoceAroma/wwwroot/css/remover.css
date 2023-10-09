@@ -8,14 +8,12 @@
 
 body {
     background-color: #F1EDE8;
-    
 }
 
-#parteUm {
-    margin-top: 4rem;
+main {
     display: flex;
     gap: 2rem;
-    margin-bottom: 8rem;
+    padding-left: 1rem;
 }
 
 
@@ -25,10 +23,6 @@ h3 {
     font-size: 1.3rem;
     text-transform: uppercase;
     font-family: 'Abril Fatface';
-    position:absolute;
-    right:3rem;
-    top:1rem;
-
 }
 
 
@@ -44,11 +38,6 @@ h3 {
 }
 
 
-#foto_padaria {
-    width: 140%;
-    height: 110%;
-}
-
 #container {
     text-align: center;
 }
@@ -60,46 +49,29 @@ h3 {
     border-width: 0.2rem;
     margin-bottom: 2.5rem;
     color: #402620;
-    padding: 1.3rem;
+    padding: 2rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
     font-size: 1.2rem;
     cursor: pointer;
 }
 
 h4 {
-    text-align: center;
-    font-size: 4rem;
+    font-size: 2rem;
     color: #402620;
     font-family: 'Prata', serif;
     font-weight: 100;
 }
 
-#containerDois {
+
+#produto {
+    width: 50%;
+    background-color: #d7d6d5;
+    border-radius: 1rem;
+    padding-left: 0.6rem;
+}
+
+#opcoes {
     display: flex;
-    justify-content: space-around;
-    text-align: center;
+    justify-content: space-evenly;
 }
-
-
-.nomeComida {
-    font-weight: bold;
-    font-size: 2rem;
-    font-family: 'Prata', serif;
-}
-
-p {
-    font-size: 2rem;
-    font-family: 'Prata', serif;
-}
-
-.imagens {
-    margin: 1rem;
-}
-
-footer {
-    background-color: #C4B3DD;
-    padding: 2rem;
-    text-align: center;
-    letter-spacing: 0.2rem;
-    color: #402620;
-}
-

@@ -2,7 +2,6 @@
 
 namespace PadariaDoceAroma.TagHelpers
 {
-    //<botao></botao>
     public class BotaoTagHelper : TagHelper
     {
         public string? Texto { get; set; }

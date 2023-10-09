@@ -1,3 +1,7 @@
+using Microsoft.EntityFrameworkCore;
+using PadariaDoceAroma.DataBase;
+using System.Runtime.Serialization;
+
 namespace PadariaDoceAroma
 {
     public class Program
@@ -8,6 +12,13 @@ namespace PadariaDoceAroma
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+
+            var conSql = builder.Configuration.GetConnectionString("conexao");
+
+
+            builder.Services.AddDbContext<ProdutosContext>(op => op.UseSqlServer(conSql));
+
 
             var app = builder.Build();
 

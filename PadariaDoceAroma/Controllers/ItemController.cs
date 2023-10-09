@@ -1,16 +1,32 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PadariaDoceAroma.DataBase;
 using PadariaDoceAroma.Models;
 
 namespace PadariaDoceAroma.Controllers
 {
     public class ItemController : Controller
     {
+        // Para nao precisar mais usar as LISTAS
+        private ProdutosContext _context;
+
+        // Para nao precisar mais usar as LISTAS
+        public ItemController(ProdutosContext context)
+        {
+            _context = context;
+        }
+
 
         private static IList<Item> _listaItens = new List<Item>();
         private static int _idItem = 0;
-        
+
+        /*Lista Reserva para adicionar os produtos que contêm
+            o nome pesquisado pelo usuario*/
+        private static IList<Item> _listaItensReserva = new List<Item>();
+
+
         public IActionResult Index()
         {
+            
             return View(_listaItens);
         }
 
@@ -22,36 +38,30 @@ namespace PadariaDoceAroma.Controllers
         [HttpPost]
         public IActionResult Cadastrar(Item item)
         {
+            
             item.Id = ++_idItem;
             _listaItens.Add(item);
-            Console.WriteLine(item.Id);
-            Console.WriteLine(item.Descricao);
             Console.WriteLine(item.Nome);
-            return RedirectToAction("Cadastrar");
+            TempData["mensagem"] = "Item cadastrado com sucesso!";
+            return RedirectToAction("Cadastrar"); 
         }
 
 
         [HttpGet]
         public IActionResult Editar(int id)
         {
-            //Pesquisar o veiculo pelo ID
-            var veiculo = _listaItens.First(v => v.Id == id);
-            //Enviar o objeto Veiculo para a View
-            return View(veiculo);
+            var item = _listaItens.First(i => i.Id == id);
+            return View(item);
         }
 
         [HttpPost]
-        public IActionResult Editar(Item veiculo)
+        public IActionResult Editar(Item item)
         {
-            //Atualizar o veiculo na lista
-            //Pesquisar a posição do veiculo na lista
-            var index = _listaItens.ToList().FindIndex(v => v.Id == veiculo.Id);
-            //Atualiza o veiculo na lista, adicionando o novo veiculo na posição do veiculo antigo
-            _listaItens[index] = veiculo;
-            //Enviar uma mensagem para view
-            TempData["msg"] = "Veículo Atualizado!";
-            //Redirect para a listagem (index)
-            return RedirectToAction("Index");
+            var index = _listaItens.ToList().FindIndex(i => i.Id == item.Id);
+            _listaItens[index] = item;
+
+            TempData["mensagem"] = " Item atualizado com sucesso!!";
+            return RedirectToAction("Editar");
         }
 
 
@@ -60,9 +70,26 @@ namespace PadariaDoceAroma.Controllers
 
         {
             _listaItens.Remove(_listaItens.First(i => i.Id == id));
-            TempData["msg"] = "Veiculo removido!";
-            //Redirect para a Index
+            TempData["mensagem"] = "O item selecionado foi removido com sucesso!";
             return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public IActionResult Pesquisar(string nomePesquisa)
+        {
+
+            _listaItensReserva = _listaItens.Where(
+                      i => i.Nome.ToLower().Contains(nomePesquisa.ToLower())).ToList();
+
+
+            return View(_listaItensReserva);
+        }
+
+        public IActionResult Resetar()
+        {
+
+            return RedirectToAction("Index");
+
         }
 
     }

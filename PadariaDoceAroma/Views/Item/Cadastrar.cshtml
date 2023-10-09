@@ -12,37 +12,21 @@
     <link rel="stylesheet" href="~/css/registro.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/PadariaDoceAroma.styles.css" asp-append-version="true" />
 </head>
-
-
 <body>
-    <header>
-        <ol>
-            <li class="registro">registro de</li>
-            <li class="registro">sabores</li>
-        </ol>
-        <div id="nomeEmpresa">
-            <h3>doce aroma</h3>
-        </div>
-    </header>
+            <h5>registro de</h5>
+            <h5>sabores</h5>
 
-        <div id="container">
+    <alert texto="@TempData["mensagem"]"></alert>
+    <div id="container">
+
+
         <form asp-action="Cadastrar" id="formulario">
             <partial name="_Formulario" id="formulario"></partial>
+            <a asp-action="Cadastrar"><button id="botao">Cadastrar</button></a>
         </form>
         <div id="foto">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4cBdMVgkb9joHRxxd_BAxFDXPJ7K21COalUbbyBNQIF5a3wyWfeGvMSjagcPPq_bnFEY&usqp=CAU">
+            <img src="https://images.tcdn.com.br/img/img_prod/795791/bolo_red_velvet_caminho_da_fazenda_947_3_4589c5a3634333222a3685928052ebc1.jpg" />
         </div>
-        </div>
-        <botao id="botao"></botao>
+    </div>
 </body>
-
-
-
-
-
-
-
-
-
-
-
+</html>

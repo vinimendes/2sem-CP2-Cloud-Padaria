@@ -1,5 +1,5 @@
-﻿
-@model List<Item>   
+﻿@model List<Item>
+
 @{
     ViewData["Title"] = "Listagem";
 }
@@ -14,54 +14,74 @@
     <link rel="stylesheet" href="~/css/listagem.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/PadariaDoceAroma.styles.css" asp-append-version="true" />
 </head>
-<body>
-    <header>
-        <ol>
-            <li class="registro">Itens Cadastrados</li>
-        </ol>
-        <div id="nomeEmpresa">
-            <h3>doce aroma</h3>
-        </div>
-    </header>
-    <main>
 
-            @foreach(var item in Model)
-            {
-                <div class="produto">
-                    
-                    <h4>@item.Id -  Nome: @item.Nome</h4>
-                    <h4>Valor: R$@item.Valor</h4>
-                    <a asp-action="Editar" asp-route-id="@item.Id"  target="_blank"><button class="botoes">Editar</button></a>
-                <button onclick="churros.value = @item.Id" type="button" class="botoes" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<body>
+    <alert texto="@TempData["mensagem"]"></alert>          
+            <h1>Itens Cadastrados</h1>
+    @* PESQUISAR AQUI: *@
+    <div id="busca">
+        
+        <form asp-action="Pesquisar"  method="post">
+
+            <label >Pesquisar por nome: </label>
+            <input name="nomePesquisa" id="" size="50" maxlength="50" />
+
+            @* BOTAO PARA ACIONAR PESQUISA *@
+            <a asp-action="Pesquisar" asp-route-id="campoEditar" target="_blank">
+                <button type="submit" class="botoes">Pesquisar</button>
+            </a>
+
+
+        </form>
+
+        <form asp-action="Resetar" method="post"> 
+
+            @* RESETAR A PESQUISA *@
+            <a asp-action="Resetar" target="_blank">
+                <button type="submit" class="botoes">Resetar</button>
+            </a>
+        </form>
+    </div>
+    
+    <main>
+      
+        @foreach (var item in Model)
+        {
+            <div class="produto">
+                <h4>@item.Id - Nome: @item.Nome</h4>
+                <h4>Valor: R$@item.Valor</h4>
+                <a asp-action="Editar" asp-route-id="@item.Id" target="_blank">
+                    <button class="botoes">Editar</button>
+                </a>
+                <button onclick="itens.value = @item.Id" type="button" class="botoes" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">
                     Excluir
                 </button>
-                </div>
+            </div>
+        }
 
-            }
-
-
-
-        <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmação</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        Deseja realmente excluir o veículo?
+                        O item deve ser excluído?
                     </div>
                     <div class="modal-footer">
                         <form asp-action="Apagar">
-                            <input type="hidden" name="id" id="churros" />
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+
+                            <input type="hidden" name="id" id="itens" />
                             <button type="submit" class="btn btn-danger">Sim</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </main>
+ 
 </body>
+
 </html>

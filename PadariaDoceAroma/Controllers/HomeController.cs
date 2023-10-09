@@ -11,7 +11,6 @@ namespace PadariaDoceAroma.Controllers
         public IActionResult Index()
         {   
             Item padaria = new Item();
-            padaria.Descricao = "descricao teste";
             return View(padaria);
         }
         //Index é a nossa página principal
