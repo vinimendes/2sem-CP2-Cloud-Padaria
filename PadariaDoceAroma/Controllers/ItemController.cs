@@ -15,19 +15,12 @@ namespace PadariaDoceAroma.Controllers
             _context = context;
         }
 
-
-        private static IList<Item> _listaItens = new List<Item>();
-        private static int _idItem = 0;
-
-        /*Lista Reserva para adicionar os produtos que contêm
-            o nome pesquisado pelo usuario*/
-        private static IList<Item> _listaItensReserva = new List<Item>();
-
-
         public IActionResult Index()
         {
             
-            return View(_listaItens);
+            var listaItens = _context.Itens.ToList();
+
+            return View(listaItens);
         }
 
         public IActionResult Cadastrar()
@@ -38,39 +31,49 @@ namespace PadariaDoceAroma.Controllers
         [HttpPost]
         public IActionResult Cadastrar(Item item)
         {
+
+            _context.Itens.Add(item);
+            _context.SaveChanges();
             
-            item.Id = ++_idItem;
-            _listaItens.Add(item);
-            Console.WriteLine(item.Nome);
             TempData["mensagem"] = "Item cadastrado com sucesso!";
-            return RedirectToAction("Cadastrar"); 
+            
+            return RedirectToAction("Cadastrar");
+
         }
 
 
         [HttpGet]
         public IActionResult Editar(int id)
         {
-            var item = _listaItens.First(i => i.Id == id);
+
+            var item = _context.Itens.Find(id);
+
             return View(item);
         }
 
         [HttpPost]
         public IActionResult Editar(Item item)
         {
-            var index = _listaItens.ToList().FindIndex(i => i.Id == item.Id);
-            _listaItens[index] = item;
+
+            _context.Itens.Update(item);
+            _context.SaveChanges();
 
             TempData["mensagem"] = " Item atualizado com sucesso!!";
+
             return RedirectToAction("Editar");
         }
 
 
         [HttpPost]
-        public IActionResult Apagar(int id)
+        public IActionResult Apagar(Item item)
 
         {
-            _listaItens.Remove(_listaItens.First(i => i.Id == id));
+
+            _context.Itens.Remove(item);
+            _context.SaveChanges();
+
             TempData["mensagem"] = "O item selecionado foi removido com sucesso!";
+
             return RedirectToAction("Index");
         }
 
@@ -78,11 +81,12 @@ namespace PadariaDoceAroma.Controllers
         public IActionResult Pesquisar(string nomePesquisa)
         {
 
-            _listaItensReserva = _listaItens.Where(
-                      i => i.Nome.ToLower().Contains(nomePesquisa.ToLower())).ToList();
+            var listaPesquisa = _context.Itens.Where(
+                                    i => i.Nome.ToLower()
+                                               .Contains(nomePesquisa.ToLower()))
+                                               .ToList();
 
-
-            return View(_listaItensReserva);
+            return View(listaPesquisa);
         }
 
         public IActionResult Resetar()
