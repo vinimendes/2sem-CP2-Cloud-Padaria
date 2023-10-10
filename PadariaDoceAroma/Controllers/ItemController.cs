@@ -7,10 +7,10 @@ namespace PadariaDoceAroma.Controllers
     public class ItemController : Controller
     {
         // Para nao precisar mais usar as LISTAS
-        private ProdutosContext _context;
+        private PadariaContext _context;
 
         // Para nao precisar mais usar as LISTAS
-        public ItemController(ProdutosContext context)
+        public ItemController(PadariaContext context)
         {
             _context = context;
         }

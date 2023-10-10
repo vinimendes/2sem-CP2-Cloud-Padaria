@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PadariaDoceAroma.Models
 {
@@ -6,7 +7,7 @@ namespace PadariaDoceAroma.Models
     public class Pedido
     {
 
-        [Column("cd_pedido")]
+        [Column("cd_pedido"), Key()]
         public int IdPedido { get; set; }
 
 
@@ -16,8 +17,13 @@ namespace PadariaDoceAroma.Models
         [Column("nm_cliente")]
         public string NomeCliente{ get; set; }
 
+        [Column("vl_produto")]
+        public decimal valorPedido { get; set; }
 
+        
+        public int FkItemId { get; set; }
 
+        public Item Item { get; set; }
 
     }
 }

@@ -1,6 +1,9 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using PadariaDoceAroma.DataBase;
 using System.Runtime.Serialization;
+using System;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace PadariaDoceAroma
 {
@@ -17,7 +20,7 @@ namespace PadariaDoceAroma
             var conSql = builder.Configuration.GetConnectionString("conexao");
 
 
-            builder.Services.AddDbContext<ProdutosContext>(op => op.UseSqlServer(conSql));
+            builder.Services.AddDbContext<PadariaContext>(op => op.UseSqlServer(conSql));
 
 
             var app = builder.Build();
