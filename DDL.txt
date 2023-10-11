@@ -1,0 +1,23 @@
+
+      CREATE TABLE [TB_PRODUTO] (
+          [cd_item] int NOT NULL IDENTITY,
+          [nm_nome_item] nvarchar(max) NOT NULL,
+          [vl_valor] float NOT NULL,
+          [ds_categoria] int NOT NULL,
+          [ds_descrica] nvarchar(max) NOT NULL,
+          CONSTRAINT [PK_TB_PRODUTO] PRIMARY KEY ([cd_item])
+      );
+      CREATE TABLE [TB_PEDIDO] (
+          [cd_pedido] int NOT NULL IDENTITY,
+          [dt_pedido] datetime2 NOT NULL,
+          [nm_cliente] nvarchar(max) NOT NULL,
+          [vl_produto] float NOT NULL,
+          [FkItemId] int NOT NULL,
+          CONSTRAINT [PK_TB_PEDIDO] PRIMARY KEY ([cd_pedido]),
+          CONSTRAINT [FK_TB_PEDIDO_TB_PRODUTO_FkItemId] FOREIGN KEY ([FkItemId]) REFERENCES [TB_PRODUTO] ([cd_item]) ON DELETE CASCADE
+      );
+
+      CREATE INDEX [IX_TB_PEDIDO_FkItemId] ON [TB_PEDIDO] ([FkItemId]);
+
+      INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+      VALUES (N'20231011182732_AzureSqlServer_4', N'7.0.11');
