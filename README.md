@@ -35,8 +35,16 @@ Após o build a aplicação estará disponível na URL do Web App
 
 ### Nomes
 Cecilia Oliveira Neves RM: 93953
+
 Luiz Felipe Souza de Oliveira RM94538
+
 Kamilla de Lima Rodrigues RM: 96112
+
 Victor Mendes RM: 92843
+
 Vinicius Mendes Medeiros RM: 94375
+
 Wesly Marques Siqueira RM: 93470
+
+### Vídeo de demonstração
+[![Demo](https://img.youtube.com/vi/IGMHgWMmI7g/maxresdefault.jpg)](https://www.youtube.com/watch?v=IGMHgWMmI7g)
