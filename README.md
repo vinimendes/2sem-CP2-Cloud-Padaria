@@ -32,3 +32,11 @@ Publicação:
 - Após criar o .xml de configuração basta clickar em Close e na janela presente clickar em Publish
 
 Após o build a aplicação estará disponível na URL do Web App
+
+### Nomes
+Cecilia Oliveira Neves RM: 93953
+Luiz Felipe Souza de Oliveira RM94538
+Kamilla de Lima Rodrigues RM: 96112
+Victor Mendes RM: 92843
+Vinicius Mendes Medeiros RM: 94375
+Wesly Marques Siqueira RM: 93470
