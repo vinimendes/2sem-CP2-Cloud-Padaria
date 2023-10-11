@@ -11,8 +11,8 @@ namespace PadariaDoceAroma.Models
         [Column("nm_nome_item")]
         public String Nome { get; set; }
 
-        [NotMapped]
-        public double Valor { get; set; }
+		[Column("vl_valor")]
+		public double Valor { get; set; }
 
         [NotMapped]
         public Boolean Vegano { get; set; }

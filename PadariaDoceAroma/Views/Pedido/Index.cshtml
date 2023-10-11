@@ -36,6 +36,7 @@
                 <label for="NomeCliente">Nome Cliente:</label>
                 <br />
                 <input name="NomeCliente" type="text" size="50" maxlength="50" required autocomplete="off">
+                
             </div>
 
 
@@ -48,9 +49,10 @@
                     {
 
                         <option value="@produto.Id" >@produto.Nome</option>
+                        @* <input name="valorItem" type="hidden" value="@produto.Valor"> *@
                     }
 
-                </select>
+            </select>
             
 
             <a asp-action="Cadastrar">

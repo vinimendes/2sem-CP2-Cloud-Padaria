@@ -37,9 +37,14 @@ namespace PadariaDoceAroma.Controllers
         public IActionResult Cadastrar(Pedido pedido, int ItemId)
         {
 
+            ItemController ItemValorPesquisa = new ItemController(_context);
+            
+
             pedido.DataPedido = DateTime.Now;
-            pedido.FkItemId = ItemId;
-            // IMPLEMENTAR valor e mais...
+            pedido.FkItemId =  ItemId;
+
+            // Valor
+            pedido.valorPedido = ItemValorPesquisa.PesquisaValor(ItemId);
 
             _context.Pedidos.Add(pedido);
             _context.SaveChanges();

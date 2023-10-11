@@ -18,7 +18,7 @@ namespace PadariaDoceAroma.Models
         public string NomeCliente{ get; set; }
 
         [Column("vl_produto")]
-        public decimal valorPedido { get; set; }
+        public double valorPedido { get; set; }
 
         
         public int FkItemId { get; set; }

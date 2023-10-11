@@ -11,7 +11,7 @@ using PadariaDoceAroma.DataBase;
 namespace PadariaDoceAroma.Migrations
 {
     [DbContext(typeof(PadariaContext))]
-    partial class ParadariaContextModelSnapshot : ModelSnapshot
+    partial class PadariaContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -44,6 +44,10 @@ namespace PadariaDoceAroma.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("nm_nome_item");
+
+                    b.Property<double>("Valor")
+                        .HasColumnType("float")
+                        .HasColumnName("vl_valor");
 
                     b.HasKey("Id");
 

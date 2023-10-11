@@ -89,6 +89,14 @@ namespace PadariaDoceAroma.Controllers
             return View(listaPesquisa);
         }
 
+        public double PesquisaValor(int id)
+        {
+            var Item = _context.Itens.First(i => i.Id == id);
+
+
+            return Item.Valor;
+        }
+
         public IActionResult Resetar()
         {
 
